@@ -1,5 +1,6 @@
 let untyped = '';
 let typed = '';
+let score = 0;
 
 const untypedfield = document.getElementById('untyped');
 const typedfield = document.getElementById('typed');
@@ -47,7 +48,7 @@ const keyPress = e => {
         return;
     }
 
-    wrap.classList.remove('mistyped');
+     score++;
     typed += untyped.substring(0,1);
     untyped = untyped.substring(1);
     typedfield.textContent = typed;
@@ -58,11 +59,13 @@ const keyPress = e => {
     }
 };
 
-const rankCheck = score => {};
+const rankCheck = score => {
+    return `${score}文字打てました!`;
+};
 
 const gameOver = id => {
     clearInterval(id);
-    console.log('ゲーム終了！')
+    const result = confirm(rankCheck(score));
 };
 
 const timer = () => {
