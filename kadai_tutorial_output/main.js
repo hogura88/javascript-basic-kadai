@@ -60,12 +60,26 @@ const keyPress = e => {
 };
 
 const rankCheck = score => {
-    return `${score}文字打てました!`;
+    let text = '';
+    if(score < 100) {
+        text = `あなたのランクはCです。\nBランクまであと${100 - score}文字です。`;
+    } else if(score < 200) {
+        text = `あなたのランクはBです。\nAランクまであと${200 - score}文字です。`;        
+    } else if(score < 300) {
+        text = `あなたのランクはAです。\nSランクまであと${300 - score}文字です。`;        
+    } else if(score < 400) {
+        text = `あなたのランクはSです。\nおめでとうございます！`;        
+    }
+    return `${score}文字打てました！\n${text}\n【OK】リトライ / 【キャンセル】終了`;
 };
 
 const gameOver = id => {
     clearInterval(id);
     const result = confirm(rankCheck(score));
+
+    if(result == true) {
+        window.location.reload();
+    }
 };
 
 const timer = () => {
