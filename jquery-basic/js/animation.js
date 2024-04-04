@@ -1,6 +1,6 @@
 $(function(){
     $('#fadeOut').on('click',function(){
-        $('.box').fadeOut();
+        $('.box').css('opacity',0);
     });
 
     $('#fadeIn').on('click',function(){
@@ -9,5 +9,17 @@ $(function(){
 
     $('#fadeToggle').on('click',function(){
         $('.box').fadeToggle();
+    });
+
+    $('#slideUp').on('click',function(){
+        $('.box').slideUp();
+    });
+
+    $('#slideDown').on('click',function(){
+        $('.box').slideDown();
+    });
+
+    $('#slideToggle').on('click',function(){
+        $('.box').slideToggle();
     })
 });
